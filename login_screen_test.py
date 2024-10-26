@@ -28,9 +28,25 @@ class TestAppium(unittest.TestCase):
         login_page.click_login()
         time.sleep(3)
 
-         # Verificar si el login fue exitoso
+        # Verificar si el login fue exitoso
         assert login_page.is_login_successful(), "Login fallido, no se encontró la pantalla principal"
         print("Prueba exitosa: El usuario fue redirigido a la pantalla principal.")
+        
+    def test_login_failed(self) -> None:
+        self.driver.implicitly_wait(10)
+        # Crear una instancia de la clase LoginPage
+        login_page = LoginPage(self.driver)
+        login_page.enter_welcome_login()
+        login_page.enter_email('christiansasig@gmail.com')
+        login_page.enter_password('Test123456aaaa')
+        login_page.click_login()
+        time.sleep(3)
+
+        # Verificar si el login fue exitoso
+        assert login_page.is_login_failed(), "Login fallido, no muestra la alerta"
+        print("Prueba exitosa: se muestra la alerta de credenciales invalidas")
+        
+        
 
 if __name__ == '__main__':
     unittest.main()
