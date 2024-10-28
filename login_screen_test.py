@@ -23,7 +23,7 @@ class TestAppium(unittest.TestCase):
         # Crear una instancia de la clase LoginPage
         login_page = LoginPage(self.driver)
         login_page.enter_welcome_login()
-        login_page.enter_email('christiansasig@gmail.com')
+        login_page.enter_email('joana_chicaiza96@gmail.com')
         login_page.enter_password('Test123456')
         login_page.click_login()
         time.sleep(3)
@@ -37,7 +37,7 @@ class TestAppium(unittest.TestCase):
         # Crear una instancia de la clase LoginPage
         login_page = LoginPage(self.driver)
         login_page.enter_welcome_login()
-        login_page.enter_email('christiansasig@gmail.com')
+        login_page.enter_email('hilda.chicaiza96@gmail.com')
         login_page.enter_password('Test123456aaaa')
         login_page.click_login()
         time.sleep(3)
