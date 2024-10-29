@@ -11,6 +11,7 @@ class LoginPage:
         self.login_button = (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.widget.Button").instance(3)')
         self.home_screen = (AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().className("android.view.View").instance(14)')
         self.error_message_alert = (AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().className("android.view.View").instance(3)')
+        self.empty_message_alert = (AppiumBy.ANDROID_UIAUTOMATOR,'new UiSelector().text("Este campo es requerido").instance(1)')
     
     def enter_welcome_login(self):
         welcome = self.driver.find_element(*self.welcome_login_field)
@@ -44,6 +45,13 @@ class LoginPage:
     def is_login_failed(self):
         try:
             error_message = self.driver.find_element(*self.error_message_alert)
+            return True
+        except:
+            return False
+
+    def is_login_empty(self):
+        try:
+            error_message = self.driver.find_element(*self.empty_message_alert)
             return True
         except:
             return False

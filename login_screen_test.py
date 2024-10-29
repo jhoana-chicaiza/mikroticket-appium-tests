@@ -47,6 +47,19 @@ class TestAppium(unittest.TestCase):
         print("Prueba exitosa: se muestra la alerta de credenciales invalidas")
         
         
+    def test_login_empty(self) -> None:
+        self.driver.implicitly_wait(10)
+        # Crear una instancia de la clase LoginPage
+        login_page = LoginPage(self.driver)
+        login_page.enter_welcome_login()
+        login_page.enter_email('')
+        login_page.enter_password('')
+        login_page.click_login()
+        time.sleep(3)
+
+        # Verificar si el login fue exitoso
+        assert login_page.is_login_empty(), "Login fallido, no muestra mensaje de campo vacio"
+        print("Prueba exitosa: se muestra mensaje de campos vacios")
 
 if __name__ == '__main__':
     unittest.main()
