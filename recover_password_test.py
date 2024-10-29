@@ -18,7 +18,7 @@ class TestAppium(unittest.TestCase):
         if self.driver:
             self.driver.quit()
 
-    def test_change_password_success(self) -> None:
+    def test_password_success(self) -> None:
         # Crear una instancia de la clase RegisterPage
         self.driver.implicitly_wait(10) #espera dinamica maximo (10seg)
         password_page = RecoverPasswordPage(self.driver)
