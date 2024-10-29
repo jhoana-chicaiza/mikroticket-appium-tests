@@ -26,7 +26,7 @@ class TestAppium(unittest.TestCase):
         password_page.change_password()
         password_page.send_email_field('hilda.chicaiza96@gmail.com')
         password_page.recovery_password()
-        time.sleep(40)
+        time.sleep(30)
         password_page.authorized_button()
         password_page.new_password('0550064125')
         password_page.repeat_new_password('0550064125')
